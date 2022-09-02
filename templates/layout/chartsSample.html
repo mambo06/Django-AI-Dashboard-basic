@@ -1,0 +1,10 @@
+{% load static %}
+<div id="data_from_django" style="display: none;" >{{ data|safe }}</div>
+
+<canvas id="myChart"></canvas>
+
+<!-- Page level plugins -->
+<script src="{% static 'layout/js/Chart.js/chart.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'layout/js/chartModel.js' %}"></script>
