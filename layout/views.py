@@ -44,4 +44,4 @@ def bubblemap(request):
 
 
 def mapamcharts(request):
-    return render(request, 'layout/mapamcharts.html')
+    return render(request, 'layout/mapAmcharts.html')
