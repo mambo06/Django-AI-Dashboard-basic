@@ -35,3 +35,13 @@ def chartJs(request):
         data.append(cs.chartDataset(x,y,tipe[i],True))
     # context["data"] = cs.chartDataset(x,y)
     return render(request,"layout/chartsSample.html",{'data': json.dumps(data)})
+
+def choropleth(request):
+    return render(request, 'layout/choropleth.html')
+
+def bubblemap(request):
+    return render(request, 'layout/bubbleMap.html')
+
+
+def mapamcharts(request):
+    return render(request, 'layout/mapamcharts.html')

@@ -8,6 +8,9 @@ urlpatterns = [
     path('charts', views.charts, name='charts'),
     path('menu', views.menu, name='menu'),
     path('sgd', views.sgd, name='sgd'),
-    path('cs', views.chartJs, name='chartsSample')
+    path('cs', views.chartJs, name='chartsSample'),
+    path('choropleth', views.choropleth, name='Choropleth'),
+    path('bubblemap', views.bubblemap, name='bubleMap'),
+    path('mapamcharts', views.mapamcharts, name='mapsAmcharts')
 
 ]

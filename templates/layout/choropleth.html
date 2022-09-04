@@ -1,0 +1,58 @@
+{% load static %}
+
+<html lang="en">
+
+<canvas id="chloroplet"></canvas>
+
+<script src="{% static 'layout/js/Chart.js/chart.min.js' %}"></script>
+<script src="{% static 'layout/js/Chartgeo/index.umd.min.js' %}"></script>
+<script src="{% static 'layout/js/Chartgeo/index.umd.min.js.map' %}"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var countries;
+        $.getJSON("{% static 'layout/topojson/countries-50m.json' %}", function(json) {
+            countries = ChartGeo.topojson.feature(json,json.objects.countries).features;
+// setup
+            var dataLabel = {
+                labels: countries.map(country => country.properties.name),
+                datasets: [{
+                    label: 'Maps',
+                    data: countries.map(country => ({feature:country, value:Math.random() }) ),
+
+                }]
+            };
+
+            // config
+            var config = {
+                type: 'choropleth',
+                data:dataLabel,
+                options: {
+                    scales: {
+                        xy: {
+                            projection: 'equalEarth',
+                            showGraticule: true,
+                        }
+                    },
+                    plugins:{
+                        legend:{
+                            display:false
+                        }
+                    }
+                }
+            };
+
+            // render init block
+            chloropletChart = new Chart(
+                document.getElementById('chloroplet'),
+                config
+            );
+        });
+
+    })
+
+</script>
+
+</body>
+</html>

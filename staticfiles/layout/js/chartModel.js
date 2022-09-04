@@ -17,7 +17,7 @@ var context = document.getElementById("data_from_django").innerHTML;
 context = JSON.parse(String(context));
 // console.log(context);
 
-var data = []
+data = []
 for (var i =0; i <context.length;i++){
     data.push(context[i].datasets[0])
 }
